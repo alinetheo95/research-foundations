@@ -98,8 +98,3 @@ body {
 .popup-link:hover {
     text-decoration: underline;
 }
-
-.footer {
-    padding-top: 20px;
-    font-size: 0.9rem;
-}
