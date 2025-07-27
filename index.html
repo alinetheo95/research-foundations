@@ -7,6 +7,7 @@
         <link href="https://unpkg.com/maplibre-gl@^5.6.1/dist/maplibre-gl.css" rel="stylesheet" />
         <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
     </head>
     <body>
     <main class="container">
@@ -57,8 +58,8 @@
         <p><b>Intersecting Fields</b></p>
         </section>
 
-        <div class="details">
-            <p>text & diagram here</p>
+        <div class="image-section">
+            <img src="Intersecting Fields Venn Diagram.png" alt="venn diagram">
         </div>
         </section>
 
@@ -93,17 +94,41 @@
         <p><b>Methods</b></p>
         </section>
 
-        <div class="details">
-            <p>Because I am studying the relationship between the digital and the physical environments, I will be looking at augmented reality programming as a tool to study the intersection between the two. I’ll start by analyzing cell growth, both in physical and digital forms, comparing and contrasting their processes, relationships, and reactivities. I would also like to add projection mapping with digital visuals as another way to intersect the digital and physical environments, while adding the auditory element of music. I’d like to create an audiovisual environmental experience that is cultivating and emotional.</p>
+        <div class="image-section2">
+            <img src="cell growth diagram.png" alt="cell growth diagram">
         </div>
         </section>
+
+        <div class="details">
+            <p>Because I am studying the relationship between the digital and the physical environments, I will be looking at augmented reality programming as a tool to study the intersection between the two. I'll start by analyzing cell growth, both in physical and digital forms, comparing and contrasting their processes, relationships, and reactivities. I would also like to add projection mapping with digital visuals as another way to intersect the digital and physical environments, while adding the auditory element of music. I'd like to create an audiovisual environmental experience that is cultivating and emotional.</p>
+        </div>
 
         <section class="sub-header">
         <p><b>Computational Design Experiments</b></p>
         </section>
 
+        <div class="image-container">
+            <img src="workflows diagram.png" alt="Image 1">
+            <img src="relational diagram.png" alt="Image 2">
+        </div>
+
+        <div class="'details">
+            <p>In other classes I have been focusing on flooding in New York City subway stations, which have been increasingly flooding from heavy rainfall due to outdated infrastructure with insufficient capacity for water. I’ve been researching statistics of rainfall and flooding and visualizing it through mapping systems, as well as temporal and relational diagrams. I’m in the process of creating a water flow simulation in grasshopper which will take in the topography of New York City.</p>
+        </div>
+        </section>
+
         <div class="details">
-            <p>text here</p>
+            <div id="d3-container-1"></div>
+        </div>
+        </section>
+
+        <div class="image-section3">
+            <img src="other classes.png" alt="other classes">
+        </div>
+        </section>
+
+        <div class="details">
+            <div id="d3-container-1"></div>
         </div>
         </section>
 
@@ -145,4 +170,5 @@
 <!--Link to JS-->
         <div id="map" style="height: 100vh;"></div>
         <script src="main.js"></script>
+        <script src="d3-visualization-temporal.js"></script>
     </body>

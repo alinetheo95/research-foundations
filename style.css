@@ -26,8 +26,45 @@ body {
 }
 
 .image-section img {
-    max-width: 150%;
+    max-width: 80%;
     height: auto;
+}
+
+.image-section2 {
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.image-section2 img {
+    max-width: 80%;
+    height: auto;
+}
+
+.image-section3 {
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.image-section3 img {
+    max-width: 100%;
+    height: auto;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* spacing between images */
+}
+.image-container img {
+    max-width: 45%;
+    height: auto; /* preserves aspect ratio */
+    object-fit: contain; /* ensures full image is visible */
 }
 
 .title-section {
@@ -58,7 +95,7 @@ body {
 
 .details {
     padding-top: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     text-align: left;
 }
 
