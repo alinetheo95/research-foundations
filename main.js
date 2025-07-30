@@ -89,8 +89,8 @@ async function loadCSVAndInitializeMap() {
         var map = new maplibregl.Map({
             container: 'map',
             style: 'style.json', // Use your local style file
-            center: [15, 25], // Global center
-            zoom: 1 // Zoomed out to see all points globally
+            center: [15, 15], // Global center
+            zoom: 2 // Zoomed out to see all points globally
         });
 
         // Add navigation controls
