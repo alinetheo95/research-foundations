@@ -21,7 +21,7 @@ body {
 .image-section {
     margin-top: 0;
     padding-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 200px;
     display: flex;
     justify-content: center;
 }
@@ -58,6 +58,8 @@ body {
 }
 
 .image-container {
+    margin-top: 0;
+    padding-top: 0;
     display: flex;
     justify-content: center;
     gap: 20px; /* spacing between images */
@@ -88,6 +90,7 @@ body {
 }
 
 .sub-header {
+    font-size: 2.5rem;
     display: flex;
     gap: 40px;
     margin-bottom: 5px;
@@ -99,10 +102,85 @@ body {
     text-align: left;
 }
 
+/* NEW ALTERNATING SECTIONS */
+.section {
+    margin-bottom: 200px;
+    padding: 40px 0;
+}
+
+.section-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.text-content {
+    flex: .67;
+}
+
+.image-content {
+    flex: 1;
+}
+
+.text-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #cfcfcf;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.text-content p {
+    font-size: 1.2rem;
+    color: #cfcfcf;
+    margin-bottom: 15px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.image-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Section 1: Text left, Image right */
+.section-1 {
+    padding-top: 80px;
+}
+
+/* Section 2: Image left, Text right */
+.section-2 .section-content {
+    flex-direction: row-reverse;
+}
+
+.section-2 {
+    padding-top: 80px;
+}
+
+/* Responsive design for alternating sections */
+@media (max-width: 768px) {
+    .section-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .section-2 .section-content {
+        flex-direction: column;
+    }
+
+    .text-content h2 {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 30px 0;
+    }
+}
+
 #map { 
     height: 700px; 
     width: 100%; 
     margin: 20px 0;
+    margin-bottom: 200px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
