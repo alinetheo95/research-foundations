@@ -93,8 +93,18 @@ body {
     font-size: 2.5rem;
     display: flex;
     gap: 40px;
+    padding-top: 100px;
     margin-bottom: 40px;
 }
+
+
+.questions {
+    font-weight: bold;
+    font-size: 2rem;
+    padding-top: 300px;
+    margin-bottom: 400px;
+}
+
 
 .details {
     padding-top: 10px;
@@ -122,6 +132,10 @@ body {
     flex: 1.2;
 }
 
+.image-content-2 {
+    flex: 1.2;
+}
+
 .text-content h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -138,6 +152,12 @@ body {
 
 .image-content img {
     width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.image-content-2 img {
+    width: 90%;
     height: auto;
     border-radius: 8px;
 }
