@@ -241,3 +241,41 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
+.chart-container {
+    background: transparent;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+        
+        
+svg {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10px;
+    
+}
+        
+.links {
+    fill: none;
+    mix-blend-mode: darken;
+}
+        
+.nodes text {
+    fill: #ffffff;
+    font-family: "Courier New", Courier, monospace;
+}
+        
+.nodes text:hover {
+    fill: #ffffff;
+    font-weight: bold;
+}

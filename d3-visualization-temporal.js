@@ -142,10 +142,10 @@ function createDemoRainfallChart() {
 function createRainfallAreaChart(data) {
     console.log('Creating rainfall area chart with', data.length, 'data points');
     
-    // Set up dimensions - made smaller to fit container
-    const margin = { top: 60, right: 40, bottom: 40, left: 60 };
-    const width = 800 - margin.left - margin.right;  // Reduced from 1000
-    const height = 400 - margin.top - margin.bottom;  // Reduced from 500
+    // Set up dimensions 
+    const margin = { top: 200, right: 40, bottom: 100, left: 60 };
+    const width = 1500 - margin.left - margin.right;  
+    const height = 700 - margin.top - margin.bottom;  
 
     // Clear any existing visualization
     d3.select("#d3-container-1").selectAll("*").remove();

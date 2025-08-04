@@ -9,6 +9,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
         
     </head>
     <body>
@@ -76,10 +77,9 @@
         <p><b>Intersecting Fields</b></p>
         </section>
 
-        <div class="image-section">
-            <img src="Intersecting Fields Venn Diagram.png" alt="venn diagram">
+        <div class="chart-container">
+            <div id="chart"></div>
         </div>
-        </section>
 
         <!-- Section 2: Image Left, Text Right -->
         <section class="section section-2">
@@ -160,22 +160,12 @@
                         <p>In other classes I have been focusing on flooding in New York City subway stations, which have been increasingly flooding from heavy rainfall due to outdated infrastructure with insufficient capacity for water. I’ve been researching statistics of rainfall and flooding and visualizing it through mapping systems, as well as temporal and relational diagrams. I’m in the process of creating a water flow simulation in grasshopper which will take in the topography of New York City. </p>
                 </div>
                 <div class="image-content">
-                    <img src="image.png" alt="image here">
+                    <img src="differential-growth.gif" alt="differential growth">
                 </div>
             </div>
         </section>
 
         <div id="canvas-container"></div>
-
-        <div class="details">
-            <div id="d3-container-1"></div>
-        </div>
-        </section>
-
-        <div class="image-section3">
-            <img src="other classes.png" alt="other classes">
-        </div>
-        </section>
 
         <div class="details">
             <div id="d3-container-1"></div>
@@ -235,5 +225,6 @@
         <div id="map" style="height: 100vh;"></div>
         <script src="main.js"></script>
         <script src="d3-visualization-temporal.js"></script>
-         <script src="animated-network-diagram.js"></script>
+        <script src="animated-network-diagram.js"></script>
+        <script src="intersecting-fields-chart.js"></script>
     </body>
