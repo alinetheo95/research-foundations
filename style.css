@@ -292,3 +292,16 @@ svg {
     fill: #ffffff;
     font-weight: bold;
 }
+
+
+.text-section, .video-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.video-section video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
