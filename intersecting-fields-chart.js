@@ -18,6 +18,8 @@
             return root;
         }
 
+        
+
         // Helper function to create bidirectional links
         function bilink(root) {
             const map = new Map(root.leaves().map(d => [id(d), d]));
@@ -140,6 +142,7 @@
             
             const tree = d3.cluster()
                 .size([2 * Math.PI, radius - 150]);
+
             
             const root = tree(bilink(d3.hierarchy(data)
                 .sort((a, b) => d3.ascending(a.height, b.height) || d3.ascending(a.data.name, b.data.name))));
@@ -257,12 +260,34 @@ ${d.incoming.length} incoming`));
         const chart = createChart(hierarchicalData);
         document.getElementById('chart').appendChild(chart);
 
-        // Global function to update with new data
+// Global function to update with new data
         window.updateChart = function(newData) {
             document.getElementById('chart').innerHTML = '';
-            const processedData = hierarchy(newData);
+            let processedData;
+            
+            // Check if data is flat with group property or already hierarchical
+            if (Array.isArray(newData) && newData[0] && newData[0].group) {
+                processedData = convertToHierarchy(newData);
+            } else if (Array.isArray(newData) && newData[0] && newData[0].name && newData[0].name.includes('.')) {
+                processedData = hierarchy(newData);
+            } else {
+                processedData = newData; // assume already hierarchical
+            }
+            
             const newChart = createChart(processedData);
             document.getElementById('chart').appendChild(newChart);
+        };
+
+        // Global function to load data from JSON file
+        window.loadFromJSON = async function(filename) {
+            try {
+                const response = await fetch(filename);
+                const jsonData = await response.json();
+                updateChart(jsonData);
+                console.log(`Chart updated with data from ${filename}`);
+            } catch (error) {
+                console.error(`Error loading ${filename}:`, error);
+            }
         };
 
         console.log("Hierarchical Edge Bundling chart ready!");
