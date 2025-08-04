@@ -127,7 +127,7 @@ body {
 
 /* NEW ALTERNATING SECTIONS */
 .section {
-    margin-bottom: 200px;
+    margin-bottom: 300px;
     padding: 40px 0;
 }
 
@@ -213,7 +213,8 @@ body {
     height: 700px; 
     width: 100%; 
     margin: 20px 0;
-    margin-bottom: 200px;
+    padding-top: 300px;
+    margin-bottom: 300px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
@@ -304,4 +305,16 @@ svg {
     height: auto;
     border-radius: 10px;
     display: block;
+}
+
+
+.photo-credit {
+    text-align: right;
+    padding-top: 4px;
+}
+
+.photo-credit small {
+    font-size: 0.7rem;
+    color: #666;
+    font-style: italic;
 }
