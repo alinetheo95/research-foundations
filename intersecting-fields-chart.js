@@ -141,7 +141,7 @@
             const k = 6; // 2^k color segments per curve
             
             const tree = d3.cluster()
-                .size([2 * Math.PI, radius - 150]);
+                .size([2 * Math.PI, radius - 100]);
 
             
             const root = tree(bilink(d3.hierarchy(data)
@@ -150,7 +150,7 @@
             const svg = d3.create("svg")
                 .attr("width", width)
                 .attr("height", width)
-                .attr("viewBox", [-width / 2 - 100, -width / 2 - 100, width + 200, width + 200])
+                .attr("viewBox", [-width / 2 - 200, -width / 2 - 200, width + 400, width + 400])
                 .attr("style", "max-width: 100%; height: auto; font: 10px courier, monospace;")
                 .attr("fill", "#ffffff");
             
@@ -164,13 +164,14 @@
                 .attr("x", d => d.x < Math.PI ? 6 : -6)
                 .attr("text-anchor", d => d.x < Math.PI ? "start" : "end")
                 .attr("transform", d => d.x >= Math.PI ? "rotate(180)" : null)
+                .attr("font-size", "16px")
                 .text(d => d.data.name)
                 .call(text => text.append("title").text(d => `${id(d)}
 ${d.outgoing.length} outgoing
 ${d.incoming.length} incoming`));
             
             const line = d3.lineRadial()
-                .curve(d3.curveBundle)
+                .curve(d3.curveBundle.beta(0.5))
                 .radius(d => d.y)
                 .angle(d => d.x);
             
@@ -180,20 +181,71 @@ ${d.incoming.length} incoming`));
                 return p;
             };
             
-            svg.append("g")
-                .attr("fill", "none")
-                .selectAll()
-                .data(d3.transpose(root.leaves()
-                    .flatMap(leaf => leaf.outgoing.map(path))
-                    .map(path => Array.from(path.split(k)))))
-                .join("path")
-                .style("mix-blend-mode", "normal")
-                .style("stroke-opacity", 0.6) // for softer appearance
-                .attr("stroke", (d, i) => color(d3.easeQuad(i / ((1 << k) - 1))))
-                .attr("d", d => d.join(""));
-            
-            return svg.node();
-        }
+// Store the connection data with the paths for easier lookup
+    const allConnections = root.leaves().flatMap(leaf => leaf.outgoing);
+    const pathSegments = d3.transpose(allConnections.map(path).map(path => Array.from(path.split(k))));
+    
+    const link = svg.append("g")
+        .attr("fill", "none")
+        .selectAll()
+        .data(allConnections) // Use the actual connections, not the split segments
+        .join("path")
+        .style("mix-blend-mode", "normal")
+        .style("stroke-opacity", 0.6)
+        .attr("stroke", (d, i) => color(d3.easeQuad(i / (allConnections.length - 1))))
+        .attr("d", ([source, target]) => {
+            const p = new Path;
+            line.context(p)(source.path(target));
+            return p.toString();
+        })
+        .attr("class", "connection-path")
+        .each(function(d) { d.path = this; }); // Store reference to path element
+    
+    // Add hover effects following the reference pattern
+    function overed(event, d) {
+        // Highlight the hovered node
+        d3.select(this).attr("fill", "#d98948").attr("font-weight", "bold");
+        
+        // Highlight incoming connections
+        d3.selectAll(d.incoming.map(d => d.path))
+            .attr("stroke", "#816182")
+            .style("stroke-opacity", 1.0)
+            .style("stroke-width", "2px")
+            .raise();
+        
+        // Highlight outgoing connections  
+        d3.selectAll(d.outgoing.map(d => d.path))
+            .attr("stroke", "#ef423a")
+            .style("stroke-opacity", 1.0)
+            .style("stroke-width", "2px")
+            .raise();
+        
+        // Dim all other paths
+        link.filter(function() {
+            return !d.incoming.map(d => d.path).includes(this) && 
+                    !d.outgoing.map(d => d.path).includes(this);
+        }).style("stroke-opacity", 0.25);
+    }
+    
+    function outed(event, d) {
+        // Reset the hovered node
+        d3.select(this).attr("fill", "#ffffff").attr("font-weight", "500");
+        
+        // Reset all paths
+        link
+            .attr("stroke", (d, i) => color(d3.easeQuad(i / (allConnections.length - 1))))
+            .style("stroke-opacity", 0.6)
+            .style("stroke-width", "1px");
+    }
+    
+    // Apply the hover effects to nodes
+    node
+        .on("mouseover", overed)
+        .on("mouseout", outed);
+    
+    return svg.node();
+}
+
 
         // Sample with hierarchical naming and imports
         const sampleData = [
