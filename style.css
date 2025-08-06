@@ -284,7 +284,7 @@ body {
     max-width: 100%;
     justify-content: center;
     align-items: center;
-    margin-bottom: 200px;
+    margin-bottom: 400px;
 }
 
 #chart {
@@ -327,7 +327,6 @@ svg {
     border-radius: 10px;
     display: block;
     padding-top: 300px;
-    margin-bottom: 300px;
 
 }
 
