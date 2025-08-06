@@ -75,7 +75,7 @@ body {
 
 .image-container {
     margin-top: 0;
-    padding-top: 0;
+    padding-top: 300px;
     display: flex;
     justify-content: center;
     gap: 20px; /* spacing between images */
@@ -127,6 +127,16 @@ body {
     margin-bottom: 60px;
     text-align: left;
 }
+
+.d3-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Optional: vertically centers if there's enough height */
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 200px;
+}
+
 
 /* NEW ALTERNATING SECTIONS */
 .section {
@@ -315,7 +325,11 @@ svg {
     height: auto;
     border-radius: 10px;
     display: block;
+    padding-top: 300px;
+    margin-bottom: 300px;
+
 }
+
 
 
 .photo-credit {

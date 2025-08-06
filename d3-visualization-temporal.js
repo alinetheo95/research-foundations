@@ -143,7 +143,7 @@ function createRainfallAreaChart(data) {
     console.log('Creating rainfall area chart with', data.length, 'data points');
     
     // Set up dimensions 
-    const margin = { top: 200, right: 40, bottom: 100, left: 60 };
+    const margin = { top: 200, right: 60, bottom: 100, left: 60 };
     const width = 1500 - margin.left - margin.right;  
     const height = 700 - margin.top - margin.bottom;  
 
